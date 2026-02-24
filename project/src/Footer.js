@@ -20,13 +20,13 @@ function Footer() {
             <div>
                 <h3>Contact</h3>
                 <p>Address</p>
-                <p>Phone number</p>
-                <p>Email</p>
+                <p>+1 23 4567 8910</p>
+                <p>littlelemon@example.com</p>
             </div>
             <div>
                 <h3>Social Media Links</h3>
-                <p>Facebook</p>
-                <p>Instagram</p>   
+                <p><a href="/facebook">Facebook</a></p>
+                <p><a href="/instagram">Instagram</a></p>   
             </div>
         </footer>
     );

@@ -1,7 +1,7 @@
 import mario_and_adrian_a from './assets/mario_and_adrian_a.jpg';
 import mario_and_adrian_b from './assets/mario_and_adrian_b.jpg';
 
-function AboutUs() {
+function Chicago() {
   return (
     <section className="about-section">
       <div className="about-content">
@@ -20,4 +20,4 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+export default Chicago;

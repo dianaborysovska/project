@@ -1,35 +1,39 @@
-import logo from './assets/logo.svg';
+import restaurant from "./assets/restaurant.jpg"
 
 function Footer() {
-    return (
-        <footer>
-            <div>
-                <img src={logo} alt="Little Lemon" />
-            </div>
-            <nav>
-                <h3>Navigation</h3>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/menu">Menu</a></li>
-                    <li><a href="/reservations">Reservations</a></li>
-                    <li><a href="/order">Order Online</a></li>
-                    <li><a href="/login">Login</a></li>
-                </ul>
-            </nav>
-            <div>
-                <h3>Contact</h3>
-                <p>Address</p>
-                <p>+1 23 4567 8910</p>
-                <p>littlelemon@example.com</p>
-            </div>
-            <div>
-                <h3>Social Media Links</h3>
-                <p><a href="/facebook">Facebook</a></p>
-                <p><a href="/instagram">Instagram</a></p>   
-            </div>
-        </footer>
-    );
+  return (
+    <footer>
+      <div className="footer-container">
+        <img src={restaurant} alt="Little Lemon Restaurant" />
+        <div className="footer-content">
+          <div>
+            <h3>Doormat Navigation</h3>
+            <ul>
+              <li>Home</li>
+              <li>About</li>
+              <li>Menu</li>
+              <li>Reservations</li>
+              <li>Order Online</li>
+              <li>Login</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <p>Chicago, IL</p>
+            <p>+1 23 456 789 1011</p>
+            <p>littlelemon@example.com</p>
+          </div>
+          <div>
+            <h3>Social Media Links</h3>
+            <ul>
+              <li>Facebook</li>
+              <li>Instagram</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

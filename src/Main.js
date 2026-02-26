@@ -1,15 +1,27 @@
+import { Routes, Route } from 'react-router-dom';
 import CallToAction from './CallToAction';
 import Specials from './Specials';
-import Reviews from './Reviews';
-import AboutUs from './AboutUs';
+import CustomersSay from './CustomersSay';
+import Chicago from './Chicago';
+import BookingPage from './BookingPage';
 
 function Main() {
   return (
     <main>
-      <CallToAction />
-      <Specials />
-      <Reviews />
-      <AboutUs />
+      <Routes>
+        {}
+        <Route path="/" element={
+          <>
+            <CallToAction />
+            <Specials />
+            <CustomersSay />
+            <Chicago />
+          </>
+        } />
+
+        {}
+        <Route path="/booking" element={<BookingPage />} />
+      </Routes>
     </main>
   );
 }

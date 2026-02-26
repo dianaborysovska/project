@@ -1,8 +1,8 @@
-function Reviews() {
+function CustomersSay() {
   const reviews = [
-    { id: 1, name: "Alex P.", text: "Best Greek salad in town!" },
-    { id: 2, name: "Maria S.", text: "Amazing service and great food." },
-    { id: 3, name: "David L.", text: "Loved the fresh lemon dessert." },
+    { id: 1, name: "Maria S.", text: "Best Greek salad in town!" },
+    { id: 2, name: "Alex P.", text: "Amazing service and great food." },
+    { id: 3, name: "Anna L.", text: "Loved the fresh lemon dessert." },
     { id: 4, name: "Elena K.", text: "Authentic recipes and modern twist." }
   ];
 
@@ -29,4 +29,4 @@ function Reviews() {
   );
 }
 
-export default Reviews;
+export default CustomersSay;

@@ -1,19 +1,20 @@
 import './App.css';
-import Header from './Header';
 import Nav from './Nav';
 import Main from './Main';
 import Footer from './Footer';
+import Header from './Header';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      <div className="top-bar">
-        <Header />
-        <Nav />
+    <BrowserRouter>
+      <div className='top-bar'>
+      <Header />
+      <Nav />
       </div>
       <Main />
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

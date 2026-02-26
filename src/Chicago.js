@@ -1,14 +1,14 @@
 import mario_and_adrian_a from './assets/mario_and_adrian_a.jpg';
 import mario_and_adrian_b from './assets/mario_and_adrian_b.jpg';
 
-function AboutUs() {
+function Chicago() {
   return (
     <section className="about-section">
       <div className="about-content">
         <h1>Little Lemon</h1>
         <h2>Chicago</h2>
         <p>
-          Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist. 
+          Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
           Founded by brothers Mario and Adrian, we bring the flavors of Italy and Greece to the heart of Chicago.
         </p>
       </div>
@@ -20,4 +20,4 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+export default Chicago;

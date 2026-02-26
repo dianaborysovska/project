@@ -8,7 +8,7 @@ function Chicago() {
         <h1>Little Lemon</h1>
         <h2>Chicago</h2>
         <p>
-          Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist. 
+          Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
           Founded by brothers Mario and Adrian, we bring the flavors of Italy and Greece to the heart of Chicago.
         </p>
       </div>

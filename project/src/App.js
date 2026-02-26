@@ -3,7 +3,7 @@ import Nav from './Nav';
 import Main from './Main';
 import Footer from './Footer';
 import Header from './Header';
-import { BrowserRouter } from 'react-router-dom'; // Добавь этот импорт
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (

@@ -1,8 +1,10 @@
+import BookingForm from './BookingForm';
+
 function BookingPage() {
     return (
-        <div style={{ padding: "50px", textAlign: "center" }}>
+        <div style={{ padding: "50px", display: "flex", flexDirection: "column", alignItems: "center" }}>
             <h1>Reserve a Table</h1>
-            <p>Booking form will be here soon!</p>
+            <BookingForm />
         </div>
     );
 }

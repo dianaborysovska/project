@@ -3,18 +3,18 @@ import Nav from './Nav';
 import Main from './Main';
 import Footer from './Footer';
 import Header from './Header';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className='top-bar'>
       <Header />
       <Nav />
       </div>
       <Main />
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

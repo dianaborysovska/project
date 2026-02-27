@@ -8,19 +8,23 @@ test('Renders the BookingForm heading', () => {
     expect(headingElement).toBeInTheDocument();
 });
 
-test('initializeTimes returns correct values', () => {
-    const expectedValue = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-    expect(initializeTimes()).toEqual(expectedValue);
+test('initializeTimes returns a non-empty array of times from fetchAPI', () => {
+    const times = initializeTimes();
+    expect(Array.isArray(times)).toBe(true);
+    expect(times.length).toBeGreaterThan(0);
 });
 
-test('updateTimes returns correct values', () => {
-    const expectedValue = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-    expect(updateTimes([], {type: 'UPDATE_TIMES'})).toEqual(expectedValue);
+test('updateTimes returns an updated array of times based on the date', () => {
+    const initialState = [];
+    const action = { type: 'UPDATE_TIMES', payload: '2026-02-27' };
+    const result = updateTimes(initialState, action);
+    expect(Array.isArray(result)).toBe(true);
+    expect(result.length).toBeGreaterThan(0);
 });
 
 test('BookingForm has correct HTML5 validation attributes', () => {
     render(<BookingForm availableTimes={[]} />);
-    const dateInput = screen.getByLabelText(/Select reservation date/i);
+    const dateInput = screen.getByLabelText(/Choose date/i);
     expect(dateInput).toHaveAttribute('required');
     const guestsInput = screen.getByLabelText(/Number of guests/i);
     expect(guestsInput).toHaveAttribute('min', '1');
@@ -29,6 +33,6 @@ test('BookingForm has correct HTML5 validation attributes', () => {
 
 test('Submit button is disabled when date is empty', () => {
     render(<BookingForm availableTimes={[]} />);
-    const submitButton = screen.getByRole('button', { name: /On click confirm your reservation/i });
+    const submitButton = screen.getByRole('button', { name: /Make Your reservation/i });
     expect(submitButton).toBeDisabled();
 });

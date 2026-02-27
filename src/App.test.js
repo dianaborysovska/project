@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import BookingForm from './BookingForm';
 import { initializeTimes, updateTimes } from './Main';
 
@@ -24,7 +24,7 @@ test('updateTimes returns an updated array of times based on the date', () => {
 
 test('BookingForm has correct HTML5 validation attributes', () => {
     render(<BookingForm availableTimes={[]} />);
-    const dateInput = screen.getByLabelText(/Choose date/i);
+    const dateInput = screen.getByLabelText(/Select reservation date/i);
     expect(dateInput).toHaveAttribute('required');
     const guestsInput = screen.getByLabelText(/Number of guests/i);
     expect(guestsInput).toHaveAttribute('min', '1');
@@ -33,6 +33,31 @@ test('BookingForm has correct HTML5 validation attributes', () => {
 
 test('Submit button is disabled when date is empty', () => {
     render(<BookingForm availableTimes={[]} />);
-    const submitButton = screen.getByRole('button', { name: /Make Your reservation/i });
+    const submitButton = screen.getByLabelText("On Click");
+    expect(submitButton).toBeDisabled();
+});
+
+test('Submit button is enabled when all fields are valid', () => {
+    const mockSubmit = jest.fn();
+    render(<BookingForm availableTimes={["17:00"]} submitForm={mockSubmit} dispatch={jest.fn()} />);
+
+    const submitButton = screen.getByLabelText("On Click");
+
+    fireEvent.change(screen.getByLabelText(/Select reservation date/i), { target: { value: '2026-12-01' } });
+    fireEvent.change(screen.getByLabelText(/Select reservation time/i), { target: { value: '17:00' } });
+    fireEvent.change(screen.getByLabelText(/Number of guests/i), { target: { value: '4' } });
+
+    expect(submitButton).not.toBeDisabled();
+});
+
+test('Submit button is disabled when guests count is invalid', () => {
+    render(<BookingForm availableTimes={["17:00"]} dispatch={jest.fn()} />);
+
+    const submitButton = screen.getByLabelText("On Click");
+
+    fireEvent.change(screen.getByLabelText(/Select reservation date/i), { target: { value: '2026-12-01' } });
+    fireEvent.change(screen.getByLabelText(/Select reservation time/i), { target: { value: '17:00' } });
+    fireEvent.change(screen.getByLabelText(/Number of guests/i), { target: { value: '0' } });
+
     expect(submitButton).toBeDisabled();
 });

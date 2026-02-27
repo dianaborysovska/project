@@ -7,6 +7,18 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
 
+    const today = new Date().toISOString().split('T')[0];
+
+    const getIsFormValid = () => {
+        return (
+            date &&
+            time &&
+            guests >= 1 &&
+            guests <= 10 &&
+            occasion
+        );
+    };
+
     const handleDateChange = (e) => {
         const selectedDate = e.target.value;
         setDate(selectedDate);
@@ -15,23 +27,20 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        submitForm({
-            date,
-            time,
-            guests,
-            occasion
-        });
+        submitForm({ date, time, guests, occasion });
     };
 
     return (
-        <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="res-date">Choose date</label>
             <input
                 type="date"
                 id="res-date"
                 value={date}
                 onChange={handleDateChange}
+                min={today}
                 required
+                aria-label="Select reservation date"
             />
 
             <label htmlFor="res-time">Choose time</label>
@@ -40,6 +49,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
+                aria-label="Select reservation time"
             >
                 <option value="">Select a time</option>
                 {availableTimes.map(t => <option key={t} value={t}>{t}</option>)}
@@ -49,22 +59,32 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
             <input
                 type="number"
                 id="guests"
+                placeholder="1"
                 min="1"
                 max="10"
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
+                required
+                aria-label="Number of guests"
             />
 
             <label htmlFor="occasion">Occasion</label>
-            <select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
-                <option>Birthday</option>
-                <option>Anniversary</option>
+            <select
+                id="occasion"
+                value={occasion}
+                onChange={(e) => setOccasion(e.target.value)}
+                required
+                aria-label="Select occasion"
+            >
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
             </select>
 
             <input
                 type="submit"
                 value="Make Your reservation"
-                disabled={!date || !time}
+                aria-label="On Click"
+                disabled={!getIsFormValid()}
             />
         </form>
     );
